@@ -1,25 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+  public function index() {
+        $articles = Article::all();
+        return view('articleList', [
+            'articles' => $articles
+        ]);
+      }
         //return Articles::all();
 
       //$Articles = DB::table('articles')->where('id')->first();
       //$someArticles;
 
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +48,11 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+
+    $article = Article::find($id);
+      return view('singleArticle', [
+          'article' => $article
+      ]);
     }
 
     /**
