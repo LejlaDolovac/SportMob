@@ -5,7 +5,10 @@
 <div>
     @if (count($articles) > 0)
     @foreach ($articles as $article)
-    <p>This is {{ $article->text }}</p>
+    <h1>{{ $article->title }}</h1>
+    <p>{{ $article->text }}</p>
+    <img src="{{ $article->img }}" alt="">
+    <footer>Author: {{ $article->author }}</footer>
     @endforeach
     @endif
 </div>

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Gate;
 
-use App\admin;
+use App\Admin;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -38,13 +39,22 @@ class AdminController extends Controller
         //
     }
 
+    public function secret()
+    {
+        if (Gate::allows('adminonly', auth()->user())) {
+            return view('private');
+        }
+        return 'You are not admin!!!!';
+    }
+
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\admin  $admin
+     * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(admin $admin)
+    public function show(Admin $admin)
     {
         //
     }
@@ -52,10 +62,10 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\admin  $admin
+     * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(admin $admin)
+    public function edit(Admin $admin)
     {
         //
     }
@@ -64,10 +74,10 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\admin  $admin
+     * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, admin $admin)
+    public function update(Request $request, Admin $admin)
     {
         //
     }
@@ -75,10 +85,10 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\admin  $admin
+     * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(admin $admin)
+    public function destroy(Admin $admin)
     {
         //
     }
