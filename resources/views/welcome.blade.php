@@ -101,6 +101,8 @@
                     <a href="./resources/fotbal.blade.php">Fotbal</a> 
                     <a href="./resources/basebal.blade.php">Basebal</a>
                     <a href="./resources/basketbal.blade.php">Basketbal</a>
+                    <a href="http://localhost:8888/SportMob/public/articles">Articles</a>
+                    <a href="http://localhost:8888/SportMob/public/private">ADMIN</a>
                 </div>
             </div>
         </div>

@@ -32,6 +32,8 @@ Route::get('articles', 'ArticleController@index');
 
 Route::get('/articles/{id}', 'ArticleController@show');
 
+Route::get('/private', 'AdminController@secret');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
