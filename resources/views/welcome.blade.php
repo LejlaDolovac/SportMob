@@ -4,10 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>SportMob</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Styles -->
         <style>
@@ -66,8 +78,14 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
+                      @if(Route::has('category'))
+                      <a href="{{ route('fotbal')}}">Fotbal</a> 
+                      <a href="{{ route('basebal')}}">Basebal</a>  
+                      <a href="{{ route('basketbal')}}">Basketbal</a>   
+
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
+                            @endif
                         @endif
                     @endauth
                 </div>
@@ -75,12 +93,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Sport
+                <h2> SportMob</h2>
+                <h6> Sports when ever you need it </h6>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Fotboll</a>
-                    <a href="https://github.com/laravel/laravel">Basket</a>
+                    <a href="./resources/fotbal.blade.php">Fotbal</a> 
+                    <a href="./resources/basebal.blade.php">Basebal</a>
+                    <a href="./resources/basketbal.blade.php">Basketbal</a>
                 </div>
             </div>
         </div>
