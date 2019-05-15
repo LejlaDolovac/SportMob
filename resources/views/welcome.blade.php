@@ -80,7 +80,8 @@
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Fotboll</a>
-                    <a href="https://github.com/laravel/laravel">Basket</a>
+                    <a href="http://localhost:8888/SportMob/public/articles">Articles</a>
+                    <a href="http://localhost:8888/SportMob/public/private">ADMIN</a>
                 </div>
             </div>
         </div>
