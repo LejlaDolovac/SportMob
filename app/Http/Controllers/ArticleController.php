@@ -24,7 +24,7 @@ class ArticleController extends Controller
           }
 
           public function football() {
-            $articles = DB::table('articles')->where('category', 'Football')->get();
+            $articles = DB::table('articles')->where('category', 'Football')->orderby('rank')->get();
                 return view('articleList', [
                     'articles' => $articles
                 ]);

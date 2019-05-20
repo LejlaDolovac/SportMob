@@ -3,6 +3,7 @@
 @section('main')
 
 <div>
+
     @if (count($articles) > 0)
     @foreach ($articles as $article)
     <h1>{{ $article->title }}</h1>
