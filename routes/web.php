@@ -20,11 +20,8 @@ Route::get('articles', 'ArticleController@index');
 
 Route::get('basketball', 'ArticleController@basketball');
 
-<<<<<<< HEAD
 Route::resource('articles', 'ArticleController');
-=======
 Route::get('football', 'ArticleController@football');
->>>>>>> ee502ea4a2555109a95eccc385bb6c7172d6a470
 
 Route::get('baseball', 'ArticleController@baseball');
 
