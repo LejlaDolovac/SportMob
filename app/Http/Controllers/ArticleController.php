@@ -17,7 +17,7 @@ class ArticleController extends Controller
       }
 
       public function basketball() {
-        $articles = DB::table('articles')->where('category', 'Basketball')->get();
+        $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->get();
             return view('articleList', [
                 'articles' => $articles
             ]);
@@ -31,7 +31,7 @@ class ArticleController extends Controller
               }
 
               public function baseball() {
-                $articles = DB::table('articles')->where('category', 'Baseball')->get();
+                $articles = DB::table('articles')->where('category', 'Baseball')->orderby('rank')->get();
                     return view('articleList', [
                         'articles' => $articles
                     ]);
