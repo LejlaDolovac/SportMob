@@ -103,6 +103,7 @@
                     <a href="http://localhost:8888/SportMob/public/basketball">Basketball</a>
                     <a href="http://localhost:8888/SportMob/public/articles">Articles</a>
                     <a href="http://localhost:8888/SportMob/public/private">ADMIN</a>
+                    <a href="http://localhost:8888/SportMob/public/ads">ADS</a>
                 </div>
             </div>
         </div>

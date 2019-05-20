@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 Route::get('articles', 'ArticleController@index');
 
+Route::get('ads', 'AdController@ad');
+
 Route::get('basketball', 'ArticleController@basketball');
 
 Route::get('football', 'ArticleController@football');
