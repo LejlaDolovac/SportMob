@@ -28,7 +28,7 @@ Route::get('/basebal', function(){
 });
 
 
-Route::get('articles', 'ArticleController@index');
+Route::resource('articles', 'ArticleController');
 
 Route::get('/articles/{id}', 'ArticleController@show');
 
@@ -37,3 +37,8 @@ Route::get('/private', 'AdminController@secret');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::resource('article', 'ArticleController');
+});
