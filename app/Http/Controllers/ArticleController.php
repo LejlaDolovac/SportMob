@@ -7,29 +7,34 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
+
   public function index() {
+<<<<<<< HEAD
         $articles = Article::paginate(5); // för att få ut endast 5 åt gången när man ska edit
+=======
+    $articles = DB::table('articles')->orderby('rank')->get();
+>>>>>>> alex
         return view('articleList', [
             'articles' => $articles
         ]);
       }
 
       public function basketball() {
-        $articles = DB::table('articles')->where('category', 'Basketball')->get();
+        $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->get();
             return view('articleList', [
                 'articles' => $articles
             ]);
           }
 
           public function football() {
-            $articles = DB::table('articles')->where('category', 'Football')->get();
+            $articles = DB::table('articles')->where('category', 'Football')->orderby('rank')->get();
                 return view('articleList', [
                     'articles' => $articles
                 ]);
               }
 
               public function baseball() {
-                $articles = DB::table('articles')->where('category', 'Baseball')->get();
+                $articles = DB::table('articles')->where('category', 'Baseball')->orderby('rank')->get();
                     return view('articleList', [
                         'articles' => $articles
                     ]);
@@ -72,10 +77,6 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
 
-    $article = Article::find($id);
-      return view('singleArticle', [
-          'article' => $article
-      ]);
     }
 
     /**
