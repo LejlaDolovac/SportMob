@@ -15,22 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/basketbal', function(){
-      return view('basketbal');
-});
 
-Route::get('/fotbal', function(){
-    return view('fotbal');
-});
+Route::get('articles', 'ArticleController@index');
 
-Route::get('/basebal', function(){
-    return view('basebal');
-});
+Route::get('basketball', 'ArticleController@basketball');
 
-
+<<<<<<< HEAD
 Route::resource('articles', 'ArticleController');
+=======
+Route::get('football', 'ArticleController@football');
+>>>>>>> ee502ea4a2555109a95eccc385bb6c7172d6a470
 
-Route::get('/articles/{id}', 'ArticleController@show');
+Route::get('baseball', 'ArticleController@baseball');
 
 Route::get('/private', 'AdminController@secret');
 
