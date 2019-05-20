@@ -7,7 +7,8 @@
     @if (count($articles) > 0)
     @foreach ($articles as $article)
     <h1>{{ $article->title }}</h1>
-    <p>{{ $article->rank }}</p>
+    <h3>Rank: {{ $article->rank }}</h3>
+    <p>{{ $article->text }}</p>
     <img src="{{ $article->img }}" alt="">
     <footer>Author: {{ $article->category }}</footer>
     @endforeach
