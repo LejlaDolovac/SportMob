@@ -7,10 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
+
   public function index() {
-    $Articles = DB::table('articles')->where('id')->first();
-    $someArticles;
-    $articles = Article::all();
+    $articles = DB::table('articles')->orderby('rank')->get();
         return view('articleList', [
             'articles' => $articles
         ]);

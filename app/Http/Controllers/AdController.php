@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AdController extends Controller
+
 {
       public function ad() {
-        $Ads = DB::table('ads')->where('id')->orderby('rank')->get();
-        $someAds;
-        $ads = Ad::all();
+        $ads = DB::table('ads')->orderby('rank')->get();
             return view('adList', [
                 'ads' => $ads
             ]);
