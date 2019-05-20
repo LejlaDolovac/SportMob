@@ -15,22 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/basketbal', function(){
-      return view('basketbal');
-});
-
-Route::get('/fotbal', function(){
-    return view('fotbal');
-});
-
-Route::get('/basebal', function(){
-    return view('basebal');
-});
-
 
 Route::get('articles', 'ArticleController@index');
 
-Route::get('/articles/{id}', 'ArticleController@show');
+Route::get('basketball', 'ArticleController@basketball');
+
+Route::get('football', 'ArticleController@football');
+
+Route::get('baseball', 'ArticleController@baseball');
 
 Route::get('/private', 'AdminController@secret');
 

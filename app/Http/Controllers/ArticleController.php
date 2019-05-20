@@ -3,19 +3,39 @@
 namespace App\Http\Controllers;
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
   public function index() {
-        $articles = Article::all();
+    $Articles = DB::table('articles')->where('id')->first();
+    $someArticles;
+    $articles = Article::all();
         return view('articleList', [
             'articles' => $articles
         ]);
       }
-        //return Articles::all();
 
-      //$Articles = DB::table('articles')->where('id')->first();
-      //$someArticles;
+      public function basketball() {
+        $articles = DB::table('articles')->where('category', 'Basketball')->get();
+            return view('articleList', [
+                'articles' => $articles
+            ]);
+          }
+
+          public function football() {
+            $articles = DB::table('articles')->where('category', 'Football')->get();
+                return view('articleList', [
+                    'articles' => $articles
+                ]);
+              }
+
+              public function baseball() {
+                $articles = DB::table('articles')->where('category', 'Baseball')->get();
+                    return view('articleList', [
+                        'articles' => $articles
+                    ]);
+                  }
 
 
 

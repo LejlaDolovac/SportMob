@@ -79,9 +79,9 @@
                         <a href="{{ route('login') }}">Login</a>
 
                       @if(Route::has('category'))
-                      <a href="{{ route('fotbal')}}">Fotbal</a> 
-                      <a href="{{ route('basebal')}}">Basebal</a>  
-                      <a href="{{ route('basketbal')}}">Basketbal</a>   
+                      <a href="{{ route('fotbal')}}">Fotbal</a>
+                      <a href="{{ route('basebal')}}">Basebal</a>
+                      <a href="{{ route('basketbal')}}">Basketbal</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
@@ -98,9 +98,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="./resources/fotbal.blade.php">Fotbal</a> 
-                    <a href="./resources/basebal.blade.php">Basebal</a>
-                    <a href="./resources/basketbal.blade.php">Basketbal</a>
+                    <a href="http://localhost:8888/SportMob/public/football">Football</a>
+                    <a href="http://localhost:8888/SportMob/public/baseball">Baseball</a>
+                    <a href="http://localhost:8888/SportMob/public/basketball">Basketball</a>
                     <a href="http://localhost:8888/SportMob/public/articles">Articles</a>
                     <a href="http://localhost:8888/SportMob/public/private">ADMIN</a>
                 </div>
