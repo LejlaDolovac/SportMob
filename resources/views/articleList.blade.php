@@ -21,9 +21,10 @@
         <img src="{{ $article->img }}" alt="">
         <footer>Author: {{ $article->category }}</footer>
         @endforeach
-        @endif
 
         {{ $articles->links() }}
+        @endif
+
     </div>
     @endsection
 

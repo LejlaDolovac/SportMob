@@ -16,21 +16,21 @@ class ArticleController extends Controller
     }
 
       public function basketball() {
-        $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->get();
+        $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->Paginate(5);
             return view('articleList', [
                 'articles' => $articles
             ]);
           }
 
           public function football() {
-            $articles = DB::table('articles')->where('category', 'Football')->orderby('rank')->get();
+            $articles = DB::table('articles')->where('category', 'Football')->orderby('rank')->Paginate(5);
                 return view('articleList', [
                     'articles' => $articles
                 ]);
               }
 
               public function baseball() {
-                $articles = DB::table('articles')->where('category', 'Baseball')->orderby('rank')->get();
+                $articles = DB::table('articles')->where('category', 'Baseball')->orderby('rank')->Paginate(5);
                     return view('articleList', [
                         'articles' => $articles
                     ]);
