@@ -18,9 +18,12 @@ Route::get('/', function () {
 
 Route::get('articles', 'ArticleController@index');
 
-Route::get('/basketball', 'ArticleController@basketball')->name ('basketball');
+Route::get('ads', 'AdController@ad');
 
-Route::get('/football', 'ArticleController@football')->name ('football');
+Route::get('basketball', 'ArticleController@basketball')->name ('basketball');;
+
+Route::resource('articles', 'ArticleController');
+Route::get('football', 'ArticleController@football')->name ('football');;
 
 Route::get('/baseball', 'ArticleController@baseball')->name ('baseball');
 
@@ -29,3 +32,8 @@ Route::get('/private', 'AdminController@secret');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::resource('article', 'ArticleController');
+});
