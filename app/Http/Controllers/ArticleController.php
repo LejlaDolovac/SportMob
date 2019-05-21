@@ -16,21 +16,21 @@ class ArticleController extends Controller
 
       public function basketball() {
         $articles = DB::table('articles')->where('category', 'Basketball')->get();
-            return view('basketball', [
+            return view('articleList', [
                 'articles' => $articles
             ]);
           }
 
           public function football() {
             $articles = DB::table('articles')->where('category', 'Football')->get();
-                return view('football', [
+                return view('articleList', [
                     'articles' => $articles
                 ]);
               }
 
               public function baseball() {
                 $articles = DB::table('articles')->where('category', 'Baseball')->get();
-                    return view('baseball', [
+                    return view('articleList', [
                         'articles' => $articles
                     ]);
                   }
