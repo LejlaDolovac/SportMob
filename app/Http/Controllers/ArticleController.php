@@ -7,17 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
-
   public function index() {
-<<<<<<< HEAD
-        $articles = Article::paginate(5); // för att få ut endast 5 åt gången när man ska edit
-=======
-    $articles = DB::table('articles')->orderby('rank')->get();
->>>>>>> alex
-        return view('articleList', [
-            'articles' => $articles
-        ]);
-      }
+          $articles = DB::table('articles')->orderBy('rank')->paginate(5); // för att få ut endast 5 åt gången när man ska edit
+      return view('articleList', [
+          'articles' => $articles
+      ]);
+    }
 
       public function basketball() {
         $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->get();
@@ -63,14 +58,14 @@ class ArticleController extends Controller
           'title'  => 'required|unique:articles|max:200',
           'category'  =>   'required|numeric'
         ]);
-        
+
         Article::create($request->all());
         return redirect('article');
         }
 
     /**
      * Display the specified resource.
-     
+
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
