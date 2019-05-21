@@ -10,7 +10,9 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <!-- Styles -->
+
         <style>
+
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -53,10 +55,7 @@
             }
 
             @import "compass/css3";
- body {
-	 color: #404040;
-	 font: 100 1em/150% "proxima-nova", Helvetica, sans-serif;
-}
+
  .wrapper {
 	 max-width: 1200px;
 	 margin: auto;
@@ -419,9 +418,7 @@ a {
   margin: 2rem;
   font-size:14px;
 
-  
 }
-
 .submit{
   width: 45px;
   height: 45px;
@@ -456,10 +453,6 @@ a {
 .textarea {
   height: 1.7rem;
   padding: .5rem;
-}
-
-#topfeed {
-  text-align: center;
 }
 
 /* HEADER/NAVBAR */ 
@@ -509,11 +502,11 @@ width: 30%;
 background-size: contain;
 
 
-    }
+}
 
-
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+/*FOOTER STYLING*/ 
+/*FOOTER STYLING*/ 
+/*FOOTER STYLING*/ 
 
 
 .footer-distributed {
@@ -597,7 +590,9 @@ background-size: contain;
   }
 }
 
-        </style>
+
+</style>
+
 
     </head>
     <body>
@@ -610,9 +605,9 @@ background-size: contain;
                         <a href="{{ route('login') }}">Login</a>
 
                       @if(Route::has('category'))
-                      <a href="{{ route('fotbal')}}">Fotbal</a> 
-                      <a href="{{ route('basebal')}}">Basebal</a>  
-                      <a href="{{ route('basketbal')}}">Basketbal</a>   
+                      <a href="{{ route('football')}}">Football</a> 
+                      <a href="{{ route('basebal')}}">Baseball</a>  
+                      <a href="{{ route('basketbal')}}">Basketball</a>   
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
@@ -631,9 +626,9 @@ background-size: contain;
 
                 <div class="links">
                 <ul class="main-nav">
-                    <a href="./resources/fotbal.blade.php">Fotbal</a> 
-                    <a href="./resources/basebal.blade.php">Basebal</a>
-                    <a href="./resources/basketbal.blade.php">Basketbal</a>
+                    <a href="{{ route('football')}}">Football</a> 
+                    <a href="{{ route('baseball')}}">Baseball</a>
+                    <a href="{{ route('basketball')}}">Basketball</a>
                     <a href="http://localhost:8888/SportMob/public/articles">Articles</a>
                     <a href="http://localhost:8888/SportMob/public/private">ADMIN</a>
                     </ul>
@@ -670,7 +665,9 @@ background-size: contain;
                           <div class="Demo Article"><strong>Aside 1</strong><br />
                             <div class="img-placeholder"></div>
                             
-                            Fotball                           </div>
+                            Fotball                           
+                            
+                            </div>
 
                           <div class="Demo Article"><strong>Aside 1</strong><br />
                             <div class="img-placeholder"></div>
@@ -729,6 +726,7 @@ background-size: contain;
   <div class="footer-left">
 
     <p class="footer-links">
+
       <a class="link-1" href="#">Home</a>
 
       <a href="#">Blog</a>
@@ -750,8 +748,4 @@ background-size: contain;
 
 
 </body>
-</html>
-                    
-        
-    </body>
 </html>

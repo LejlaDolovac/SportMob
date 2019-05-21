@@ -18,11 +18,11 @@ Route::get('/', function () {
 
 Route::get('articles', 'ArticleController@index');
 
-Route::get('basketball', 'ArticleController@basketball');
+Route::get('/basketball', 'ArticleController@basketball')->name ('basketball');
 
-Route::get('football', 'ArticleController@football');
+Route::get('/football', 'ArticleController@football')->name ('football');
 
-Route::get('baseball', 'ArticleController@baseball');
+Route::get('/baseball', 'ArticleController@baseball')->name ('baseball');
 
 Route::get('/private', 'AdminController@secret');
 

@@ -7,37 +7,33 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
-  public function index() {
-    $Articles = DB::table('articles')->where('id')->first();
-    $someArticles;
-    $articles = Article::all();
-        return view('articleList', [
-            'articles' => $articles
-        ]);
-      }
+      public function index() {
+      $articles = DB::table('articles')->orderby('rank')->get();
+          return view('articleList', [
+              'articles' => $articles
+          ]);
+        }
 
       public function basketball() {
         $articles = DB::table('articles')->where('category', 'Basketball')->get();
-            return view('articleList', [
+            return view('basketball', [
                 'articles' => $articles
             ]);
           }
 
           public function football() {
             $articles = DB::table('articles')->where('category', 'Football')->get();
-                return view('articleList', [
+                return view('football', [
                     'articles' => $articles
                 ]);
               }
 
               public function baseball() {
                 $articles = DB::table('articles')->where('category', 'Baseball')->get();
-                    return view('articleList', [
+                    return view('baseball', [
                         'articles' => $articles
                     ]);
                   }
-
-
 
     /**
      * Show the form for creating a new resource.
