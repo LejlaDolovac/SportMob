@@ -5,7 +5,16 @@
     <title>Articles</title>
   </head>
   <body>
-    <h1>arti</h1>
+
+    <div class="links">
+        <a href="http://localhost:8888/SportMob/public/football">Football</a>
+        <a href="http://localhost:8888/SportMob/public/baseball">Baseball</a>
+        <a href="http://localhost:8888/SportMob/public/basketball">Basketball</a>
+        <a href="http://localhost:8888/SportMob/public/articles">Articles</a>
+        <a href="http://localhost:8888/SportMob/public/private">ADMIN</a>
+        <a href="http://localhost:8888/SportMob/public/user">user</a>
+    </div>
+    
     @yield('main')
     <footer>
     @section('footer')

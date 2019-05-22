@@ -1,7 +1,5 @@
 @extends('articles')
 
-@section('main')
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -9,6 +7,8 @@
     <title></title>
   </head>
   <body>
+
+    @section('main')
 
     <div>
 
@@ -26,7 +26,8 @@
         @endif
 
     </div>
-    @endsection
+
+    @extends('ads')
 
     <div>
 
@@ -39,6 +40,7 @@
         @endforeach
         @endif
     </div>
+    @endsection
 
 
 
