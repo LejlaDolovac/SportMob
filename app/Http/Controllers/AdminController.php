@@ -15,7 +15,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // anvönd denna 
+        // anvönd denna
     }
 
     /**
@@ -25,7 +25,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        // 
+        //
     }
 
     /**
@@ -47,6 +47,14 @@ class AdminController extends Controller
         return 'You are not admin!!!!';
     }
 
+    public function UserSecret()
+    {
+        if (Gate::allows('subscribers', auth()->user())) {
+            return view('user');
+        }
+        return 'You are not inlogged!!!!';
+    }
+
 
     /**
      * Display the specified resource.
@@ -65,7 +73,7 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(admin $admin) 
+    public function edit(admin $admin)
     {
         // skapa PUT
     }
