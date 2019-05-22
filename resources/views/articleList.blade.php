@@ -15,11 +15,13 @@
       @if (count($articles) > 0)
         @foreach ($articles as $article)
 
-        <h1>{{ $article->title }}</h1>
+        <h1> {{ $article->category }} </h1>
+        <h2>{{ $article->title }}</h2xs>
         <h3>Rank: {{ $article->rank }}</h3>
-        <p>{{ $article->text }}</p>
         <img src="{{ $article->img }}" alt="">
-        <footer>Author: {{ $article->category }}</footer>
+        <br>
+        <a href="http://localhost:8888/SportMob/public/user">Läs mer....</a>
+        <footer>Author: {{ $article->author }}</footer>
         @endforeach
 
         {{ $articles->links() }}
