@@ -27,22 +27,28 @@ class ArticleController extends Controller
 
       public function basketball() {
         $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->Paginate(5);
+        $ads = DB::table('ads')->orderby('rank')->get();
             return view('articleList', [
-                'articles' => $articles
+                'articles' => $articles,
+                'ads' => $ads
             ]);
           }
 
           public function football() {
             $articles = DB::table('articles')->where('category', 'Football')->orderby('rank')->Paginate(5);
+            $ads = DB::table('ads')->orderby('rank')->get();
                 return view('articleList', [
-                    'articles' => $articles
+                    'articles' => $articles,
+                    'ads' => $ads
                 ]);
               }
 
               public function baseball() {
                 $articles = DB::table('articles')->where('category', 'Baseball')->orderby('rank')->Paginate(5);
+                $ads = DB::table('ads')->orderby('rank')->get();
                     return view('articleList', [
-                        'articles' => $articles
+                        'articles' => $articles,
+                        'ads' => $ads
                     ]);
                   }
 
