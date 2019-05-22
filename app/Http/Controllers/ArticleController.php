@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Ad;
 use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -8,10 +9,19 @@ use Illuminate\Support\Facades\DB;
 class ArticleController extends Controller
 {
 
+  public function ad() {
+    $ads = DB::table('ads')->orderby('rank')->get();
+        return view('articleList', [
+            'ads' => $ads
+        ]);
+}
+
         public function index() {
           $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
-      return view('articleList', [
-          'articles' => $articles
+          $ads = DB::table('ads')->orderby('rank')->get();
+          return view('articleList', [
+          'articles' => $articles,
+          'ads' => $ads
       ]);
     }
 

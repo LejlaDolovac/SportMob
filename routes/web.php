@@ -18,11 +18,12 @@ Route::get('/', function () {
 
 Route::get('articles', 'ArticleController@index');
 
-Route::get('ads', 'AdController@ad');
+Route::get('ads', 'ArticleController@ad');
 
 Route::get('basketball', 'ArticleController@basketball');
 
 Route::resource('articles', 'ArticleController');
+
 Route::get('football', 'ArticleController@football');
 
 Route::get('baseball', 'ArticleController@baseball');
