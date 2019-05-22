@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Gate;
-
-use App\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        // anvönd denna
-    }
+     public function index() {
+       $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
+       $ads = DB::table('ads')->orderby('rank')->get();
+       return view('user', [
+       'articles' => $articles,
+       'ads' => $ads
+   ]);
+ }
 
     /**
      * Show the form for creating a new resource.

@@ -32,6 +32,9 @@ Route::get('/private', 'AdminController@secret');
 
 Route::get('/user', 'AdminController@UserSecret');
 
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

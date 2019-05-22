@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Gate;
 use App\Admin;
 use Illuminate\Http\Request;
 
+use App\Ad;
+use Illuminate\Support\Facades\DB;
+
 class AdminController extends Controller
 {
     /**
@@ -50,8 +53,13 @@ class AdminController extends Controller
     public function UserSecret()
     {
         if (Gate::allows('subscribers', auth()->user())) {
-            return view('user');
-        }
+          $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
+          $ads = DB::table('ads')->orderby('rank')->get();
+            return view('user', [
+            'articles' => $articles,
+            'ads' => $ads
+        ]);
+      }
         return 'You are not inlogged!!!!';
     }
 
