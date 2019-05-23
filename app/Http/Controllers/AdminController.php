@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Gate;
-
+use Illuminate\Support\Facades\DB;
 use App\Admin;
+use App\Ad;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,7 +16,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // anvönd denna 
+        // anvönd denna
     }
 
     /**
@@ -25,7 +26,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        // 
+        //
     }
 
     /**
@@ -47,6 +48,20 @@ class AdminController extends Controller
         return 'You are not admin!!!!';
     }
 
+    public function UserSecret()
+    {
+        if (Gate::allows('subscribers', auth()->user())) {
+          $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
+        $ads = DB::table('ads')->orderby('rank')->get();
+          return view('user', [
+          'articles' => $articles,
+          'ads' => $ads
+      ]);
+    }
+        return 'You are not inlogged!!!!';
+    }
+
+
 
     /**
      * Display the specified resource.
@@ -65,7 +80,7 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(admin $admin) 
+    public function edit(admin $admin)
     {
         // skapa PUT
     }
