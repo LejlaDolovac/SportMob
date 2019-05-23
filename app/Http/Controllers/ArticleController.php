@@ -118,7 +118,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        $article = article::finde($id);
+        $article = article::find($id);
         return view('article.edit')->with('article', $article);
 
         

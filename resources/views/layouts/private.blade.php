@@ -34,14 +34,19 @@
                         <td> {{ $article->title }} </td> 
                         <td>
 
-                            <a class="btn btn-small btn-info" href="{{
-                            url::to('edit' .$article->id . 'edit') }}">Edit</a> 
+                           <a class="btn btn-success" href="{{ 
+                           url::to('create' .$article->id . '/create') }}">Add</a>
+                               
+                            <a class="btn btn-info" href="{{
+                            url::to('edit' .$article->id . '/edit') }}">Edit</a> 
 
-                            {{ Form::open(array('URL' => 'private' . $article->id, 'class' => 'btn btn-small')) }}
-                               {{Form::hidden('_method', 'DELETE') }}
-                               {{Form::submit('Delete', array('class'
-                                => 'btn btn-danger')) }}
-                               {{Form::close()}}
+                         <form action="{{ url('private/'. $article->id)}}" method="post">
+                               @method('DELETE')
+                               @csrf
+                              <input class="btn btn-danger" type="submit" value="Delete {{$article->id}}"   />
+                         </form>
+
+
                         </td>
                     </tr>  
                 @endforeach

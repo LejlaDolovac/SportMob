@@ -28,7 +28,7 @@ Route::get('baseball', 'ArticleController@baseball');
 
 Route::get('/private', 'AdminController@secret');
 
-Route::delete('/private', 'AdminController@destroy');
+Route::delete('/private/{article}', 'AdminController@destroy');
 
 Auth::routes();
 

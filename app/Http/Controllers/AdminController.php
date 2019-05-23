@@ -66,7 +66,8 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        $article = Article::find($product);
+        return $article;
     }
 
     /**
@@ -75,9 +76,9 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(admin $admin) 
+    public function edit(article $article) 
     {
-        $article = Article::finde($id);
+        $article = Article::find($id);
         return view('edit')->with('article', $article);
     }
 
@@ -90,7 +91,8 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
-        return view('private');
+        $article = Article::find($id);
+        return view('create')->with('article', $article);
     }
 
     /**
@@ -101,8 +103,7 @@ class AdminController extends Controller
      */
     public function destroy(Article $article)
     {
-        Article::destroy($article);
-           $article->delete();
+        Article::destroy($article->id);
 
             // redirect
             Session::flash('message', 'Successfully deleted the article!' );
