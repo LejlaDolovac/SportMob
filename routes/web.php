@@ -20,12 +20,15 @@ Route::get('articles', 'ArticleController@index');
 
 Route::get('basketball', 'ArticleController@basketball');
 
-Route::resource('articles', 'ArticleController');
+Route::resource('articles', 'ArticleController'); // CRUD
+
 Route::get('football', 'ArticleController@football');
 
 Route::get('baseball', 'ArticleController@baseball');
 
 Route::get('/private', 'AdminController@secret');
+
+Route::delete('/private', 'AdminController@destroy');
 
 Auth::routes();
 

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Article;
+use validator; // måste jag installera ?
+ use DB, Session, Crypt, Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
   public function index() {
-        $articles = Article::paginate(5); // för att få ut endast 5 åt gången när man ska edit
+        $articles = Article::all(); // för att få ut endast tex 5 åt gången anvönd paginate(5)
         return view('articleList', [
             'articles' => $articles
         ]);
@@ -44,7 +46,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('addArticle');
+        return view('articleList'); // addArticle a
     }
 
     /**
@@ -54,6 +56,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        /*
         $this->validate($request, [
           'title'  => 'required|unique:articles|max:200',
           'category'  =>   'required|numeric'
@@ -62,7 +65,36 @@ class ArticleController extends Controller
         Article::create($request->all());
         return redirect('article');
         }
+*/
+        
+        $rules = array(
+            'name'    =>'required',
+        );
+        $validator = Validator::make(Input::all(), $rules);
 
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        if($validator => fails()) {
+            return redirect('layouts/create')
+                     ->withErrors($validator)
+                     ->withInput();
+        }else {
+            
+            $article = new Article;
+            $article->title    =Input::get('name');
+            $article->visible   =''; //  vilken categori den ska till
+            $article->save();
+
+            //redirect
+            session::flash('message', 'Successfully created article!');
+           return redirect('articleList');
+
+
+        }
+    }
+        
     /**
      * Display the specified resource.
      
@@ -88,6 +120,8 @@ class ArticleController extends Controller
     {
         $article = article::finde($id);
         return view('article.edit')->with('article', $article);
+
+        
     }
 
     /**
@@ -97,12 +131,41 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Article $article) // id
     {
-        DB::table('user')
+        /*
+        DB::table('article')
             ->where('id', 1)
-            ->update(['userLevel' => 10]);
+            ->update(['articleList' => 10]);
+       */
+    
+     
+        $rules = array(
+            'name'    =>'required',
+        );
+        $validator = Validator::make(Input::all(), $rules);
 
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        if($validator::fails()){
+            return redirect('layouts/create')
+                     ->withErrors($validator)
+                     ->withInput();
+        }else {
+            // store
+            $article = Article::find($id);
+            $article->title    =Input::get('title');
+            $article->visible   =''; // 1 vilken categori den ska till
+            $article->save();
+
+            //redirect
+            session::flash('message', 'Successfully created article!');
+           return redirect('edit')->with('status', 'Article created!'); // admin/categorys 
+
+
+        }
     }
 
     /**
@@ -113,7 +176,15 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        DB::table('title')->where('id', '>', 100)->delete();
+
+        $article = Article::find($id);
+            $article->delete();
+
+            // redirect
+            Session::flash('message', 'Successfully deleted the article!' );
+            return redirect('private')->with('status', 'Article deleted!');
+
+
 
     }
 }

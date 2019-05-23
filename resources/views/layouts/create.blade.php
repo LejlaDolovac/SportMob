@@ -1,3 +1,9 @@
+
+
+<!-- Här ligger ADD-button -->
+
+
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -14,7 +20,7 @@
  
     <div class="form-group">
         {!! Form::label('title', 'title') !!}
-         {!! Form::text('title', null, ['class' => 'form-control']) !!}
+         {!! Form::text('text', null, ['class' => 'form-control']) !!}
      </div>
     <div class="form-group">
         {!! Form::label('category', 'category') !!}
@@ -23,12 +29,9 @@
     <div class="btn-add">
         {!! Form::submit('Add this article', ['class' => 'btn btn-info']) !!}
         {!! Form::close() !!}    
-    </div>    
-
-
-        
-
-
+    </div>   
+    
+    
 
 
     @if (count($errors) > 0 ) 

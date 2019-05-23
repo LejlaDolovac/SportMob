@@ -10,3 +10,22 @@ class Article extends Model
         'title', 'category'
     ];
 }
+
+
+
+/*
+// returns the sluggable configurator for this model  -hur viktig är denna ?
+
+use Sluggable; 
+
+@return // array
+
+public function sluggable() {
+       return[
+           'slug' => [
+               'source' => 'name'
+           ]
+      ];
+}
+
+*/

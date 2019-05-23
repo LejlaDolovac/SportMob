@@ -1,9 +1,14 @@
 <?php
 
+
 namespace App\Http\Controllers;
+Session();
 use Illuminate\Support\Facades\Gate;
+use DB, Session, Crypt, Hash;
+
 
 use App\Admin;
+use App\Article;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -41,8 +46,13 @@ class AdminController extends Controller
 
     public function secret()
     {
+        $articles = Article::paginate(10); 
+        return view('layouts.private', [
+            'articles' => $articles
+        ]);
+      
         if (Gate::allows('adminonly', auth()->user())) {
-            return view('private');
+            return view('layouts.private');
         }
         return 'You are not admin!!!!';
     }
@@ -67,7 +77,8 @@ class AdminController extends Controller
      */
     public function edit(admin $admin) 
     {
-        // skapa PUT
+        $article = Article::finde($id);
+        return view('edit')->with('article', $article);
     }
 
     /**
@@ -79,7 +90,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
-        //
+        return view('private');
     }
 
     /**
@@ -88,8 +99,14 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Article $article)
     {
-        //
+        Article::destroy($article);
+           $article->delete();
+
+            // redirect
+            Session::flash('message', 'Successfully deleted the article!' );
+            return redirect('private')->with('status', 'Article deleted!');
     }
 }
+
