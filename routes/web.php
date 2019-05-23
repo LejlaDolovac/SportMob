@@ -18,11 +18,14 @@ Route::get('/', function () {
 
 Route::get('articles', 'ArticleController@index');
 
+Route::get('edit', 'AdminController@edit');
+
 Route::get('ads', 'ArticleController@ad');
 
 Route::get('basketball', 'ArticleController@basketball')->name ('basketball');;
 
 Route::resource('articles', 'ArticleController');
+
 Route::get('football', 'ArticleController@football')->name ('football');;
 
 Route::get('/baseball', 'ArticleController@baseball')->name ('baseball');
@@ -30,6 +33,8 @@ Route::get('/baseball', 'ArticleController@baseball')->name ('baseball');
 Route::get('/private', 'AdminController@secret');
 
 Route::get('/user', 'AdminController@UserSecret');
+
+Route::delete('/private/{article}', 'AdminController@destroy');
 
 Auth::routes();
 

@@ -5,6 +5,8 @@ use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Ad;
+//use DB, Session, Crypt, Hash;
+use validator;
 
 class ArticleController extends Controller
 {

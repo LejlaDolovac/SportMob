@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Admin;
 use App\Ad;
 use Illuminate\Http\Request;
+use URL;
 
 class AdminController extends Controller
 {
@@ -43,7 +44,14 @@ class AdminController extends Controller
     public function secret()
     {
         if (Gate::allows('adminonly', auth()->user())) {
-            return view('private');
+          $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
+        $ads = DB::table('ads')->orderby('rank')->get();
+            return view('private', [
+            'articles' => $articles,
+            'ads' => $ads
+        ]);
+
+
         }
         return 'You are not admin!!!!';
     }
