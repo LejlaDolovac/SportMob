@@ -275,7 +275,7 @@
  .content-1of12::before {
 	 content: "1/12";
 }
- 
+
 
 * {
 	box-sizing: border-box;
@@ -350,7 +350,7 @@ a {
 }
 
 
-/* ================================= 
+/* =================================
   Media Queries
 ==================================== */
 
@@ -409,7 +409,7 @@ a {
   padding: 15px;
   color: #fff;
   font-size: 20px;
-  
+
 }
 
 .input{
@@ -432,7 +432,7 @@ a {
   cursor: pointer;
   box-shadow: 0px 0px 0px 7px #fff;
   transition: 0.2s ease-out;
-  
+
 
 }
 
@@ -455,7 +455,7 @@ a {
   padding: .5rem;
 }
 
-/* HEADER/NAVBAR */ 
+/* HEADER/NAVBAR */
 .main-nav {
   text-align: center;
   margin: auto;
@@ -504,9 +504,9 @@ background-size: contain;
 
 }
 
-/*FOOTER STYLING*/ 
-/*FOOTER STYLING*/ 
-/*FOOTER STYLING*/ 
+/*FOOTER STYLING*/
+/*FOOTER STYLING*/
+/*FOOTER STYLING*/
 
 
 .footer-distributed {
@@ -605,9 +605,9 @@ background-size: contain;
                         <a href="{{ route('login') }}">Login</a>
 
                       @if(Route::has('category'))
-                      <a href="{{ route('football')}}">Football</a> 
-                      <a href="{{ route('basebal')}}">Baseball</a>  
-                      <a href="{{ route('basketbal')}}">Basketball</a>   
+                      <a href="{{ route('football')}}">Football</a>
+                      <a href="{{ route('basebal')}}">Baseball</a>
+                      <a href="{{ route('basketbal')}}">Basketball</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
@@ -618,7 +618,7 @@ background-size: contain;
             @endif
 
                 <div class="header-banner">
-                  
+
           </div>
             <header class="header">
             <div class="content">
@@ -626,15 +626,15 @@ background-size: contain;
 
                 <div class="links">
                 <ul class="main-nav">
-                    <a href="{{ route('football')}}">Football</a> 
+                    <a href="{{ route('football')}}">Football</a>
                     <a href="{{ route('baseball')}}">Baseball</a>
                     <a href="{{ route('basketball')}}">Basketball</a>
-                    <a href="http://localhost:8888/SportMob/public/articles">Articles</a>
-                    <a href="http://localhost:8888/SportMob/public/private">ADMIN</a>
+                    <a href="http://localhost:8888/SportMob1/public/articles">Articles</a>
+                    <a href="http://localhost:8888/SportMob1/public/private">ADMIN</a>
                     </ul>
                 </div>
             </div>
-            </header> 
+            </header>
 
         </div>
         <div class="wrapper">
@@ -664,25 +664,25 @@ background-size: contain;
                         <div class="Grid-cell aside aside-1">
                           <div class="Demo Article"><strong>Aside 1</strong><br />
                             <div class="img-placeholder"></div>
-                            
-                            Fotball                           
-                            
+
+                            Fotball
+
                             </div>
 
                           <div class="Demo Article"><strong>Aside 1</strong><br />
                             <div class="img-placeholder"></div>
-                            
+
                             Fotball                           </div>
 
                           <div class="Demo Article"><strong>Aside 1</strong><br />
                             <div class="img-placeholder"></div>
-                            
+
                             Fotball                           </div>
 
                           <div class="Demo Article"><strong>Aside 1</strong><br />
                             <div class="img-placeholder"></div>
-                            
-                           Fotball 
+
+                           Fotball
                           </div>
                         </div>
                         <div class="Grid-cell aside aside-2">
@@ -705,9 +705,9 @@ background-size: contain;
                                         <strong>Aside 2</strong>
                                         <p>Baseball.</p>
                                       </div>
-                                      
+
                         </div>
-                      </div>  
+                      </div>
 
 
 
