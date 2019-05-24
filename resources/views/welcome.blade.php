@@ -652,8 +652,6 @@ background-size: contain;
 
           @if (count($articles) > 0)
             @foreach ($articles as $article)
-            @if (count($ads) > 0)
-            @foreach ($ads as $ad)
 
             <div class="wrapper">
 
@@ -676,7 +674,7 @@ background-size: contain;
             </div>
             <div class="Grid-cell aside aside-2">
             </div>
-            <div class="img-placeholder"><img src="{{ $ad->img }}" alt="">
+            <h3>Rank: {{ $article->rank }}</h3>
             </div>
             <br>
             @endforeach
@@ -688,6 +686,8 @@ background-size: contain;
 
         <div>
 
+            @if (count($ads) > 0)
+            @foreach ($ads as $ad)
             <h1>{{ $ad->title }}</h1>
             <h3>Rank: {{ $ad->rank }}</h3>
             <p>{{ $ad->text }}</p>
