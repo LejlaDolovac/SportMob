@@ -5,7 +5,6 @@
     <title>Articles</title>
   </head>
   <body>
-    <h1>arti</h1>
     @yield('main')
     <footer>
     @section('footer')

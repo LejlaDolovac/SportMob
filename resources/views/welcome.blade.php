@@ -22,6 +22,12 @@
                 margin: 0;
             }
 
+            img {
+
+              width: 30%;
+
+            }
+
             .position-ref {
                 position: relative;
             }
@@ -596,6 +602,8 @@ background-size: contain;
 
     </head>
     <body>
+      @extends('articles')
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -637,10 +645,66 @@ background-size: contain;
             </header>
 
         </div>
+
+
+
+        <div>
+
+          @if (count($articles) > 0)
+            @foreach ($articles as $article)
+            @if (count($ads) > 0)
+            @foreach ($ads as $ad)
+
+            <div class="wrapper">
+
+            <div class="Grid Grid--gutters Grid--Article-grail">
+              <div class="Grid-cell main">
+                <div class="Grid-cell aside aside-1">
+                <div class="Demo Article">
+
+
+            <h1> {{ $article->category }} </h1>
+            <h2>{{ $article->title }}</h2>
+            <img id="img" src="{{ $article->img }}" alt="">
+            <br>
+            <a href="http://localhost:8888/SportMob1/public/user">Läs mer....</a>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="Grid-cell aside aside-2">
+            </div>
+            <div class="img-placeholder"><img src="{{ $ad->img }}" alt="">
+            </div>
+            <br>
+            @endforeach
+
+            {{ $articles->links() }}
+            @endif
+
+        </div>
+
+        <div>
+
+            <h1>{{ $ad->title }}</h1>
+            <h3>Rank: {{ $ad->rank }}</h3>
+            <p>{{ $ad->text }}</p>
+            <div class="img-placeholder"><img src="{{ $ad->img }}" alt="">
+            @endforeach
+            @endif
+        </div>
+
+
+
         <div class="wrapper">
+
+
                         <h1 id="topfeed"></h1>
                       <div class="Grid Grid--gutters Grid--Article-grail">
                         <div class="Grid-cell main">
+
 
                           <div class="Demo Article">
                             <strong>Main</strong>
@@ -708,11 +772,12 @@ background-size: contain;
 
                         </div>
                       </div>
-
+                      {{ $articles->links() }}
 
 
 
 <footer class="footer-distributed">
+
 
   <div class="footer-right">
 
