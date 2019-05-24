@@ -629,8 +629,8 @@ background-size: contain;
                     <a href="{{ route('football')}}">Football</a>
                     <a href="{{ route('baseball')}}">Baseball</a>
                     <a href="{{ route('basketball')}}">Basketball</a>
-                    <a href="http://localhost:8888/SportMob1/public/articles">Articles</a>
-                    <a href="http://localhost:8888/SportMob1/public/private">ADMIN</a>
+                    <a href="{{ route('articles')}}">article</a>
+                    <a href="{{ route('admin')}}">ADMIN</a>
                     </ul>
                 </div>
             </div>
