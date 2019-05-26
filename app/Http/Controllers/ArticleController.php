@@ -11,50 +11,57 @@ use validator;
 class ArticleController extends Controller
 {
 
-  public function ad() {
-    $ads = DB::table('ads')->orderby('rank')->get();
-        return view('articleList', [
-            'ads' => $ads
-        ]);
-}
 
 
-      public function basketball() {
-        $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->Paginate(5);
-        $ads = DB::table('ads')->orderby('rank')->get();
-        return view('articleList', [
-          'articles' => $articles,
-          'ads' => $ads
-                ]);
-              }
-
-              public function index() {
-                $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
-                $ads = DB::table('ads')->orderby('rank')->get();
-              return view('articleList', [
-              'articles' => $articles,
-              'ads' => $ads
-            ]);
+    public function index() {
+     $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
+      $ads = DB::table('ads')->orderby('rank')->get();
+      return view('articleList', [
+       'articles' => $articles,
+       'ads' => $ads
+     ]);
     }
 
-          public function football() {
-            $articles = DB::table('articles')->where('category', 'Football')->orderby('rank')->Paginate(5);
-            $ads = DB::table('ads')->orderby('rank')->get();
+    public function football() {
+
+     $articles = DB::table('articles')->where('category', 'Fotbal')->orderby('rank')->Paginate(6);
+     $ads = DB::table('ads')->orderby('rank')->get();
+     return view('football', [
+      'articles' => $articles,
+       'ads' => $ads
+      ]);
+    }
+
+    public function baseball() {
+      $articles = DB::table('articles')->where('category', 'Baseboll')->orderby('rank')->Paginate(6);
+      $ads = DB::table('ads')->orderby('rank')->get();
+      return view('baseball', [
+       'articles' => $articles,
+       'ads' => $ads
+      ]);
+    }
+
+    public function basketball() {
+      $articles = DB::table('articles')->where('category', 'Basketbal')->orderby('rank')->Paginate(6);
+      $ads = DB::table('ads')->orderby('rank')->get();
+      return view('basketball', [
+        'articles' => $articles,
+        'ads' => $ads
+      ]);
+    }
+    public function ad() {
+      $ads = DB::table('ads')->orderby('rank')->get();
+      return view('articleList', [
+       'ads' => $ads
+      ]);
+    }   
+    public function read(Request $request) {
+      $articles = DB::table('articles')->where('id', $request['id'])->get()->all();
+     
           return view('articleList', [
-          'articles' => $articles,
-          'ads' => $ads
-                ]);
-              }
-
-              public function baseball() {
-                $articles = DB::table('articles')->where('category', 'Baseball')->orderby('rank')->Paginate(5);
-                $ads = DB::table('ads')->orderby('rank')->get();
-              return view('articleList', [
-              'articles' => $articles,
-              'ads' => $ads
-                    ]);
-                  }
-
+              'articles' => $articles
+          ]);
+      }    
     /**
      * Show the form for creating a new resource.
      *

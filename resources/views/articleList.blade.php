@@ -1,48 +1,31 @@
-@extends('articles')
+@extends('layouts.common')
+@section('content')
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
 
-    @section('main')
+<div class="row content-ranking">
+        <div class="medium-2 columns">
+        </div>
+        <div class="medium-8 columns" role="main">
+        @foreach($articles as $value)
+        <article class="post-entry" itemscope itemtype="/articles">
+            <header>
+          <a class="wrapper" href="{{ asset('articles')}}/{{$value->id}}">
+              <h1 class="title" itemprop="name">{{$value->title}}</h1>
+                  <img  src="{{$value->img}}" alt="" /></a>
+              <div class="meta">
+                  <span class="date">{{Carbon\Carbon::parse($value->created_at)->format('M d Y')}}</span>
+                  <span class="author">by <a href="#" itemprop="author">{{$value->author}}</a></span>
+              </div>   
+            </header>
 
-    <div>
-
-      @if (count($articles) > 0)
-        @foreach ($articles as $article)
-
-        <h1> {{ $article->category }} </h1>
-        <h2>{{ $article->title }}</h2xs>
-        <h3>Rank: {{ $article->rank }}</h3>
-        <img src="{{ $article->img }}" alt="">
-        <br>
-        <a href="http://localhost:8888/SportMob1/public/user">Läs mer....</a>
-        <footer>Author: {{ $article->author }}</footer>
+            <div class="content">
+                <p>{{$value->text}}</a></p>
+            </div>
+          </article>                          
         @endforeach
 
-        {{ $articles->links() }}
-        @endif
-
-    </div>
-
-    <div>
-
-        @if (count($ads) > 0)
-        @foreach ($ads as $ad)
-        <h1>{{ $ad->title }}</h1>
-        <h3>Rank: {{ $ad->rank }}</h3>
-        <p>{{ $ad->text }}</p>
-        <img src="{{ $ad->img }}" alt="">
-        @endforeach
-        @endif
-    </div>
-    @endsection
-
-
-
-  </body>
-</html>
+        </div>
+        <div class="medium-2 columns">
+        </div>
+</div>
+@endsection 
