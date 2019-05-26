@@ -12,7 +12,7 @@ class ArticleController extends Controller
 {
 
   public function ad() {
-    $ads = DB::table('ads')->orderby('rank')->get();
+    $ads = DB::table('ads')->orderby('rank')->get()->Paginate(2);
         return view('articleList', [
             'ads' => $ads
         ]);
@@ -20,7 +20,7 @@ class ArticleController extends Controller
 
 
       public function basketball() {
-        $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->Paginate(5);
+        $articles = DB::table('articles')->where('category', 'Basketball')->orderby('rank')->Paginate(2);
         $ads = DB::table('ads')->orderby('rank')->get();
         return view('articleList', [
           'articles' => $articles,
@@ -29,8 +29,8 @@ class ArticleController extends Controller
               }
 
               public function index() {
-                $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
-                $ads = DB::table('ads')->orderby('rank')->get();
+                $articles = DB::table('articles')->orderBy('rank')->Paginate(2); // för att få ut endast 5 åt gången när man ska edit
+                $ads = DB::table('ads')->orderby('rank')->get()->Paginate(2);
               return view('articleList', [
               'articles' => $articles,
               'ads' => $ads
@@ -38,7 +38,7 @@ class ArticleController extends Controller
     }
 
           public function football() {
-            $articles = DB::table('articles')->where('category', 'Football')->orderby('rank')->Paginate(5);
+            $articles = DB::table('articles')->where('category', 'Football')->orderby('rank')->Paginate(2);
             $ads = DB::table('ads')->orderby('rank')->get();
           return view('articleList', [
           'articles' => $articles,
@@ -47,7 +47,7 @@ class ArticleController extends Controller
               }
 
               public function baseball() {
-                $articles = DB::table('articles')->where('category', 'Baseball')->orderby('rank')->Paginate(5);
+                $articles = DB::table('articles')->where('category', 'Baseball')->orderby('rank')->Paginate(2);
                 $ads = DB::table('ads')->orderby('rank')->get();
               return view('articleList', [
               'articles' => $articles,

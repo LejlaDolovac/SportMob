@@ -342,18 +342,6 @@ a {
 
 
 
-.header {
-	padding-top: .5em;
-	padding-bottom: .5em;
-	border: 1px solid #a2a2a2;
-	background-color: #f4f4f4;
-	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-}
 
 
 /* =================================
@@ -375,12 +363,7 @@ a {
 
 }
 
-@media (min-width: 1025px) {
-	.header {
-		justify-content: space-between;
-	}
 
-}
 
 
 /* TO LOGIN PAGE*/
@@ -407,30 +390,14 @@ a {
   border-radius: 4px;
 }
 
-.legend{
-  position: relative;
-  width: 100%;
-  display: block;
-  background: #FF7052;
-  padding: 15px;
-  color: #fff;
-  font-size: 20px;
 
-}
-
-.input{
-  position: relative;
-  width: 90%;
-  margin: 2rem;
-  font-size:14px;
-
-}
+/*
 .submit{
   width: 45px;
   height: 45px;
   display: block;
   margin: 0 auto -15px auto;
-  background: #fff;
+  background: black;
   border-radius: 100%;
   border: 1px solid #FF7052;
   color: #FF7052;
@@ -442,6 +409,7 @@ a {
 
 }
 
+/*
 .feedback{
   position: absolute;
   bottom: -70px;
@@ -460,6 +428,8 @@ a {
   height: 1.7rem;
   padding: .5rem;
 }
+*/
+
 
 /* HEADER/NAVBAR */
 .main-nav {
@@ -472,30 +442,29 @@ a {
 	padding: 10px 15px;
 	text-transform: uppercase;
 	text-align: center;
-	display: block;
+	display: inline;
 }
 
 .main-nav a {
-	color: #34495e;
+	color: yellow;
 	font-size: .99em;
 }
 
 .main-nav a:hover {
-	color: #718daa;
+	color: black;
 }
 
 .header {
 	padding-top: .5em;
 	padding-bottom: .5em;
 	border: 1px solid #a2a2a2;
-	background-color: #f4f4f4;
+	background-color: rgb(78, 156, 189);
 	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-  background-image: linear-gradient(to right, #FEE140, #FA709A); /* Standard syntax (must be last) */
 
 }
 
@@ -510,8 +479,7 @@ background-size: contain;
 
 }
 
-/*FOOTER STYLING*/
-/*FOOTER STYLING*/
+
 /*FOOTER STYLING*/
 
 
@@ -535,7 +503,7 @@ background-size: contain;
 .footer-distributed p.footer-links {
   font-size: 18px;
   font-weight: bold;
-  color: #ffffff;
+  color: black;
   text-align: center;
   margin: 0 0 10px;
   padding: 0;
@@ -554,7 +522,7 @@ background-size: contain;
   content: "·";
   font-size: 20px;
   left: 0;
-  color: #fff;
+  color: black;
   display: inline-block;
   padding-right: 5px;
 }
@@ -609,6 +577,7 @@ background-size: contain;
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/register') }}">Login</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -637,7 +606,7 @@ background-size: contain;
                     <a href="{{ route('football')}}">Football</a>
                     <a href="{{ route('baseball')}}">Baseball</a>
                     <a href="{{ route('basketball')}}">Basketball</a>
-                    <a href="{{ route('articles')}}">article</a>
+                   {{-- <a href="{{ route('articles')}}">article</a> --}}
                     <a href="{{ route('admin')}}">ADMIN</a>
                     </ul>
                 </div>
@@ -674,7 +643,7 @@ background-size: contain;
             </div>
             <div class="Grid-cell aside aside-2">
             </div>
-            <h3>Rank: {{ $article->rank }}</h3>
+            <h3>{{ $article->rank }}</h3>
             </div>
             <br>
             @endforeach
@@ -689,7 +658,7 @@ background-size: contain;
             @if (count($ads) > 0)
             @foreach ($ads as $ad)
             <h1>{{ $ad->title }}</h1>
-            <h3>Rank: {{ $ad->rank }}</h3>
+            <h3> {{ $ad->rank }}</h3>
             <p>{{ $ad->text }}</p>
             <div class="img-placeholder"><img src="{{ $ad->img }}" alt="">
             @endforeach
@@ -698,7 +667,7 @@ background-size: contain;
 
 
 
-        <div class="wrapper">
+        {{-- <div class="wrapper">
 
 
                         <h1 id="topfeed"></h1>
@@ -771,7 +740,7 @@ background-size: contain;
                                       </div>
 
                         </div>
-                      </div>
+                      </div> --}}
                       {{ $articles->links() }}
 
 
