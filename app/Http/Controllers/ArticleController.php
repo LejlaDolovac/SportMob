@@ -5,6 +5,7 @@ use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Ad;
+use Illuminate\Support\Facades\Input;
 //use DB, Session, Crypt, Hash;
 use validator;
 
@@ -98,11 +99,15 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
-    {
-        $article = article::finde($id);
-        return view('article.edit')->with('article', $article);
-    }
+    public function edit( article $article)
+   {
+
+       $article = Article::find($article->id);
+       return view('private', [
+           'article' => $article
+       ]);
+
+   }
 
     /**
      * Update the specified resource in storage.
@@ -113,9 +118,12 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        DB::table('user')
-            ->where('id', 1)
-            ->update(['userLevel' => 10]);
+        $article = Article::find($article->id);
+        $article->text = Input::get('text');
+        $article->title = Input::get('title');
+        $article->save();
+        return redirect('articles');
+
 
     }
 

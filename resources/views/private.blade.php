@@ -35,38 +35,29 @@
                 </td>
               </tr>
             </table>
-            @endforeach
-
-    {!! Form::open(['route' => 'article.store']) !!}
-
-    <div class="form-group">
-        {!! Form::label('title', 'title') !!}
-         {!! Form::text('title', null, ['class' => 'form-control']) !!}
-     </div>
-    <div class="form-group">
-        {!! Form::label('category', 'category') !!}
-        {!! Form::text('category', null, ['class' => 'form-control']) !!}
-    </div>
-    <div class="btn-add">
-        {!! Form::submit('Add this article', ['class' => 'btn btn-info']) !!}
-        {!! Form::close() !!}
-    </div>
-
-
-
-
-
-
-
-
-
-    @if (count($errors) > 0 )
-         <ul>
-     @foreach($errors->all() as $error)
-         <li>{{ $error }} </li>
       @endforeach
-           </ul>
-     @endif
+
+      @extends('articles')
+
+      {!! Form::open(['route' => ['article.update', $article->id], 'method' => 'post']) !!}
+                  {{ method_field('PATCH') }}
+                  @csrf
+
+          <div class="form-group">
+              {!! Form::label('text', 'text') !!}
+              {!! Form::text('text', $article->text, ['class' => 'form-control']) !!}
+          </div>
+
+          <div class="form-group">
+              {!! Form::label('title', 'title') !!}
+              {!! Form::text('title', $article->title, ['class' => 'form-control']) !!}
+          </div>
+
+          {!! Form::submit('Uppdatera artikeln', ['class' => 'btn btn-info']) !!}
+
+      {!! Form::close() !!}
+
+
 
 
 </body>

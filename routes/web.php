@@ -26,6 +26,12 @@ Route::get('articles', 'ArticleController@index')->name ('articles');
 
 Route::get('edit', 'AdminController@edit');
 
+Route::get('article', 'AdminController@edit');
+
+Route::get('/update', 'AdminController@update');
+
+Route::get('article', 'AdminController@update');
+
 Route::get('basketball', 'ArticleController@basketball')->name ('basketball');
 
 Route::get('football', 'ArticleController@football')->name ('football');
@@ -41,6 +47,8 @@ Route::delete('/private/{article}', 'AdminController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/{id}/edit','ArticleController@update')->name('update');
 
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {

@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use App\Admin;
 use App\Ad;
+use App\Article;
 use Illuminate\Http\Request;
 use URL;
+use validator;
 
 class AdminController extends Controller
 {
@@ -15,10 +17,14 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        // anvönd denna
-    }
+     public function index() {
+       $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
+       $ads = DB::table('ads')->orderby('rank')->get();
+     return view('articleList', [
+     'articles' => $articles,
+     'ads' => $ads
+   ]);
+ }
 
     /**
      * Show the form for creating a new resource.
@@ -88,10 +94,13 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(admin $admin)
-    {
-        // skapa PUT
-    }
+     public function edit($id)
+  {
+      $article = Article::find($id);
+      return view('private', [
+          'article' => $article
+      ]);
+  }
 
     /**
      * Update the specified resource in storage.
@@ -100,10 +109,14 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
-    {
-        //
-    }
+     public function update(Request $request, $id)
+      {
+          $article = Article::find($id);
+          $article->text = Input::get('text');
+          $article->author = Input::get('author');
+          $article->save();
+          return redirect('articles');
+      }
 
     /**
      * Remove the specified resource from storage.
