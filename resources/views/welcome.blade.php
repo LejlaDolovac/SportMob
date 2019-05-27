@@ -12,6 +12,30 @@
         <!-- Styles -->
 
         <style>
+
+        .adgrid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 180px 200px;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.adgrid-container > .item2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+        .adimg {
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 20rem;
+        height: 10rem;
+        display: inline-block;
+        vertical-align: middle;
+        }
+
         .grid-container > div {
         background-color: white;
         text-align: center;
@@ -191,6 +215,18 @@ li {
   display: inline;
 }
 
+#ad {
+  color: red;
+  text-align: center;
+}
+
+h2 {
+color: darkred;
+font-size: 3rem;
+text-align: center;
+
+}
+
 
 
 </style>
@@ -239,13 +275,16 @@ li {
                 </div>
             </div>
             </header>
+            <div class="adgrid-container">
 
             @if (count($ads) > 0)
             @foreach ($ads as $ad)
-            <h1>{{ $ad->title }}</h1>
-            <h3>Rank: {{ $ad->rank }}</h3>
-            <p>{{ $ad->text }}</p>
-            <img src="{{ $ad->img }}" alt="">
+
+            <div class="item2">
+              <h2>EXTRA EXTRA</h2>
+              <h1 id="ad">{{ $ad->title }}</h1>
+              <img class="adimg" src="{{ $ad->img }}" alt="">
+              </div>
             @endforeach
             @endif
         </div>
@@ -265,7 +304,6 @@ li {
             <a id="läs" href="http://localhost:8888/SportMob1/public/user">Read more....</a>
             <br>
             <h5>Author: {{ $article->author }}</h5>
-            <p id="text1"> {{ $article->text }} </p>
           </div>
 
             @endforeach

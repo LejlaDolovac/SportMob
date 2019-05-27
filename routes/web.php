@@ -14,7 +14,7 @@
 Route::get('/', function () {
 
   $articles = DB::table('articles')->orderBy('rank')->Paginate(5); // för att få ut endast 5 åt gången när man ska edit
-  $ads = DB::table('ads')->orderby('rank')->get();
+  $ads = DB::table('ads')->orderBy('rank')->Paginate(2);
 return view('welcome', [
 'articles' => $articles,
 'ads' => $ads
