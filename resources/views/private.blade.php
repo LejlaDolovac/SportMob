@@ -30,32 +30,40 @@
                 <td> {{$article->id}}</td>
                 <td>{{$article->title}}</td>
                 <td>
-                  <a class="btn btn-info" href="">Edit</a>
-
                 </td>
               </tr>
             </table>
+
+            @extends('articles')
+
+            {!! Form::open(['route' => ['article.update', $article->id], 'method' => 'post']) !!}
+                        {{ method_field('PATCH') }}
+                        @csrf
+
+                <div class="form-group">
+                    {!! Form::label('text', 'text') !!}
+                    {!! Form::text('text', $article->text, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('title', 'title') !!}
+                    {!! Form::text('title', $article->title, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('category', 'category') !!}
+                    {!! Form::text('category', $article->category, ['class' => 'form-control']) !!}
+                </div>
+
+                {!! Form::submit('Uppdatera artikeln', ['class' => 'btn btn-info']) !!}
+
+            {!! Form::close() !!}
+
+
+
       @endforeach
 
-      @extends('articles')
 
-      {!! Form::open(['route' => ['article.update', $article->id], 'method' => 'post']) !!}
-                  {{ method_field('PATCH') }}
-                  @csrf
-
-          <div class="form-group">
-              {!! Form::label('text', 'text') !!}
-              {!! Form::text('text', $article->text, ['class' => 'form-control']) !!}
-          </div>
-
-          <div class="form-group">
-              {!! Form::label('title', 'title') !!}
-              {!! Form::text('title', $article->title, ['class' => 'form-control']) !!}
-          </div>
-
-          {!! Form::submit('Uppdatera artikeln', ['class' => 'btn btn-info']) !!}
-
-      {!! Form::close() !!}
 
 
 
