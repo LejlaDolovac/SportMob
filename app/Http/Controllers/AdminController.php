@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+Session();
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
 use App\Admin;
 use App\Ad;
+use App\Article;
 use Illuminate\Http\Request;
 use URL;
 
@@ -79,7 +83,10 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        
+        $article = Article::find($product);
+        return $article;
+
     }
 
     /**
@@ -88,9 +95,10 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(admin $admin)
+    public function edit( article $article )
     {
-        // skapa PUT
+        $article = Article::find($article->id);
+        return view('layouts.edit')->with('article', $article);
     }
 
     /**
@@ -102,7 +110,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
-        //
+        
     }
 
     /**
@@ -111,8 +119,12 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Article $article)
     {
-        //
+        Article::destroy($article->id);
+
+            // redirect
+            Session::flash('message', 'Successfully deleted the article!' );
+            return redirect('/private')->with('status', 'Article deleted!');
     }
 }

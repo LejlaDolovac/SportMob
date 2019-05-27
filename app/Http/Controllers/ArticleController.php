@@ -113,9 +113,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        DB::table('user')
-            ->where('id', 1)
-            ->update(['userLevel' => 10]);
+        DB::table('user')->where('id', '>', 100)->update(['' => 10]);
 
     }
 
@@ -128,6 +126,9 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         DB::table('title')->where('id', '>', 100)->delete();
+
+        Session::flash('message', 'Successfully deleted the article!' );
+        return redirect('private')->with('status', 'Article deleted!');
 
     }
 }

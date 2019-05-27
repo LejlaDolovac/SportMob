@@ -11,11 +11,12 @@
 
            {{ Form::model($article, array('route' =>
             array('article.update', $article->id), 'method' =>
-            'PUT')) }}
+            'PATCH')) }}
+            @csrf
 
             <div class="form-group'>
-                {{ Form::label('title', 'Title) }}
-                {{ Form::text('text', null, array('class' => 'form-controll' ) }}
+                {{ Form::label('title' , 'Title) !!}}
+                {{ Form::text('title', $article->title , array('class' => 'form-controll' )) }}
             </div>
 
             {{ Form::submit('Edit the article!', array('class' => 

@@ -24,7 +24,7 @@ return view('welcome', [
 
 Route::get('articles', 'ArticleController@index')->name ('articles');
 
-Route::get('edit', 'AdminController@edit');
+Route::get('edit/{article}', 'AdminController@edit');
 
 Route::get('basketball', 'ArticleController@basketball')->name ('basketball');
 
@@ -33,6 +33,9 @@ Route::get('football', 'ArticleController@football')->name ('football');
 Route::get('/baseball', 'ArticleController@baseball')->name ('baseball');
 
 Route::get('/private', 'AdminController@secret')->name ('admin');
+
+Route::resource('articles', 'ArticleController'); // CRUD
+
 
 Route::get('/user', 'AdminController@UserSecret');
 

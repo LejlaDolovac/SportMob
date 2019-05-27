@@ -63,7 +63,7 @@
             @import "compass/css3";
 
  .wrapper {
-	 max-width: 1200px;
+	 max-width: 800px;
 	 margin: auto;
 }
  h1, h2, h3, h4 {
@@ -91,6 +91,8 @@
 	 height: 1px;
 	 background-color: rgba(51, 153, 204, .2);
 }
+
+
 
 /*Basic Grid Styles*/
  .Grid {
@@ -667,7 +669,7 @@ background-size: contain;
 
 
 
-        {{-- <div class="wrapper">
+         <div class="wrapper">
 
 
                         <h1 id="topfeed"></h1>
@@ -675,72 +677,49 @@ background-size: contain;
                         <div class="Grid-cell main">
 
 
+    
                           <div class="Demo Article">
-                            <strong>Main</strong>
-                            <p>Basket</p>
+                           
+                            <h1> {{ $article->category }} </h1>
+                            <p>  {{ $article->title }}</p>
+                            <img id="img" src="{{ $article->img }}" alt="">
+                                        <a href="http://localhost:8888/SportMob1/public/user">Läs mer....</a>
+
+
+
+
                           </div>
 
                           <div class="Demo Article">
-                                <strong>Main</strong>
-                                <p>Basket</p>
-                              </div>
-                          <div class="Demo Article">
-                            <strong>Main</strong>
-                            <p>Basket</p>
-                          </div>
-
-                          <div class="Demo Article">
-                                <strong>Main</strong>
+                               
                                 <p>Basket</p>
                               </div>
                         </div>
-                        <div class="Grid-cell aside aside-1">
-                          <div class="Demo Article"><strong>Aside 1</strong><br />
-                            <div class="img-placeholder"></div>
-
-                            Fotball
-
-                            </div>
-
-                          <div class="Demo Article"><strong>Aside 1</strong><br />
+                        
+                          <div class="Demo Article"><br />
                             <div class="img-placeholder"></div>
 
                             Fotball                           </div>
 
-                          <div class="Demo Article"><strong>Aside 1</strong><br />
+                          <div class="Demo Article"><br />
                             <div class="img-placeholder"></div>
 
                             Fotball                           </div>
 
-                          <div class="Demo Article"><strong>Aside 1</strong><br />
-                            <div class="img-placeholder"></div>
-
-                           Fotball
-                          </div>
+                         
                         </div>
                         <div class="Grid-cell aside aside-2">
 
                           <div class="Demo Article">
-                            <strong>Aside 2</strong>
                             <p>Baseball.</p>
                           </div>
 
                           <div class="Demo Article">
-                                <strong>Aside 2</strong>
                                 <p>Baseball.</p>
-                              </div>
-
-                              <div class="Demo Article">
-                                    <strong>Aside 2</strong>
-                                    <p>Baseball.</p>
-                                  </div>
-                                  <div class="Demo Article">
-                                        <strong>Aside 2</strong>
-                                        <p>Baseball.</p>
-                                      </div>
+                              </div>     
 
                         </div>
-                      </div> --}}
+                      </div> 
                       {{ $articles->links() }}
 
 

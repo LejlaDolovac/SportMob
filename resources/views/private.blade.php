@@ -1,61 +1,74 @@
-<!doctype html>
+<!-- Här inne ligger delete button och även edit button denna är kopplad till adminController -->
 
-
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-</head>
-<body>
 @extends('layouts.app');
+
+@section('content')
+<div class="container">
+    <div class="row">
+
+        <h2>Welcome to your Admin page </h2> 
+        <br>
+            <div href="{{ URL::to('views/articleList')}}"> 
+            </div>
+
 
     @if (Session::has('message'))
         <div class="alert alert-info">
           {{ Session::get('message') }}</div>
     @endif
 
-          <tabel class="tabel tabel-striped tabel-bordered">
+          <table class="tabel tabel-striped tabel-bordered">
             <thead>
               <tr>
                 <td>ID</td>
-                <td>Title Name</td>
+                <td>Title</td>
+                <td>Category</td>
+              </tr>
             </thead>
             <tbody>
               @foreach($articles as $article)
               <tr>
                 <td> {{$article->id}}</td>
                 <td>{{$article->title}}</td>
+                <td>{{$article->category}}</td>
                 <td>
-                  <a class="btn btn-info" href="">Edit</a>
 
-                </td>
-              </tr>
-            </table>
-            @endforeach
+    
+{!! Form::open(['route' => 'article.store']) !!}
 
-    {!! Form::open(['route' => 'article.store']) !!}
-
-    <div class="form-group">
+   <form class="form-group">
         {!! Form::label('title', 'title') !!}
          {!! Form::text('title', null, ['class' => 'form-control']) !!}
-     </div>
-    <div class="form-group">
+    </form>
+    <form class="form-group">
         {!! Form::label('category', 'category') !!}
         {!! Form::text('category', null, ['class' => 'form-control']) !!}
-    </div>
-    <div class="btn-add">
-        {!! Form::submit('Add this article', ['class' => 'btn btn-info']) !!}
+    </form>
+    <form class="btn-add">
+        {!! Form::submit('Add this article', ['class' => 'btn btn-success']) !!}
         {!! Form::close() !!}
-    </div>
+    </form>
+
+    <form action="{{ url('private/'. $article->id)}}" method="post">
+        @method('DELETE')
+        @csrf
+       <input class="btn btn-danger" type="submit" value="Delete {{$article->id}}"   />
+  </form>
+
+  <a class="btn btn-info" href="{{
+    url::to('edit/' .$article->id ) }}">Edit</a>
 
 
 
 
+</td>
+</tr>
+@endforeach
 
+{{ $articles->links() }} 
+
+</tbody>
+</table>
 
 
 
@@ -69,8 +82,11 @@
      @endif
 
 
-</body>
-</html>
+        </div>
+     </div>
+@endsection
+
+
 
 
 <style>
@@ -80,5 +96,8 @@
 }
 .btn-add{
     padding: 1rem;
+}
+form{
+    box-sizing: border-box;
 }
 </style>
