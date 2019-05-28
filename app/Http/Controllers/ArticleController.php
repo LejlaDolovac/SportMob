@@ -56,6 +56,13 @@ class ArticleController extends Controller
                     ]);
                   }
 
+                  public function getArticle($id) {
+                    $article = Article::where('id', $id)->first();
+                  return view('article.article', [
+                  'article' => $article
+                        ]);
+                      }
+
     /**
      * Show the form for creating a new resource.
      *

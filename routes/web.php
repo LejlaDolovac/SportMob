@@ -26,6 +26,8 @@ Route::get('articles', 'ArticleController@index')->name ('articles');
 
 Route::get('edit', 'AdminController@edit');
 
+Route::get('article/{id}', ['uses'=> 'ArticleController@getArticle', 'as'=>'article.article']);
+
 Route::get('article', 'AdminController@edit');
 
 Route::get('/update', 'AdminController@update');

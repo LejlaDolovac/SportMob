@@ -301,9 +301,7 @@ text-align: center;
             <h1> {{ $article->title }} </h1>
             <img src="{{ $article->img }}" alt="">
             <p id="text"> {{ $article->text }} </p>
-            <footer>Author: {{ $article->author }}</footer>
-
-            <a href="{{ route('article.article', ['id'=>$article->id]) }}">if works....</a>
+            <a id="läs" href="http://localhost:8888/SportMob1/public/user">Read more....</a>
             <br>
             <h5>Author: {{ $article->author }}</h5>
           </div>
